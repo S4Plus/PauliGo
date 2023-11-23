@@ -1,0 +1,12 @@
+\multirow{2}{*}{SWAP} & uccsd & 17\% & 50\% & 68\%\\
+\cline{2-5}
+ & molecule & 32\% & 0\% & 32\%\\
+\cline{2-5}
+ & random & 48\% & 0\% & 48\%\\
+\hline
+\multirow{2}{*}{SWAP} & uccsd & -4\% & 31\% & 35\%\\
+\cline{2-5}
+ & molecule & 0\% & 20\% & 22\%\\
+\cline{2-5}
+ & random & -3\% & 36\% & 38\%\\
+\hline

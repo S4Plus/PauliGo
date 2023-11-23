@@ -1,0 +1,10 @@
+\multirow{2}{*}{Sycamore} & SWAP & 68\% & 32\% & 48\%\\
+\cline{2-5}
+ & depth & 35\% & 22\% & 38\%\\
+\hline
+
+\multirow{2}{*}{Sycamore} & SWAP & 15\% & 18\% & 34\%\\
+\cline{2-5}
+ & depth & 17\% & 12\% & 15\%\\
+\hline
+
