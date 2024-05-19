@@ -1,0 +1,433 @@
+r8   manhattan   tk
+TK Pauli Simp: 0.18545174598693848
+Qiskit L3: 9.830848217010498
+{'swap': 1957, 'cx': 7548, 'depth': 7213} 
+
+r8   manhattan   ph
+Qiskit L3: 7.11322808265686
+{'swap': 382, 'cx': 3826, 'depth': 3664} 
+
+r8   manhattan   go
+Qiskit L3: 8.354055166244507
+{'swap': 218, 'cx': 3011, 'depth': 2900} 
+
+r8   sycamore   tk
+TK Pauli Simp: 0.22417187690734863
+Qiskit L3: 6.866426229476929
+{'swap': 955, 'cx': 5123, 'depth': 4767} 
+
+r8   sycamore   ph
+Qiskit L3: 9.54606556892395
+{'swap': 95, 'cx': 2947, 'depth': 3145} 
+
+r8   sycamore   go
+Qiskit L3: 7.658456563949585
+{'swap': 76, 'cx': 2780, 'depth': 2580} 
+
+r10   manhattan   tk
+TK Pauli Simp: 0.4592726230621338
+Qiskit L3: 28.11680030822754
+{'swap': 4781, 'cx': 17996, 'depth': 15143} 
+
+r10   manhattan   ph
+Qiskit L3: 19.152395486831665
+{'swap': 1025, 'cx': 9033, 'depth': 7529} 
+
+r10   manhattan   go
+Qiskit L3: 17.827731370925903
+{'swap': 485, 'cx': 6709, 'depth': 5592} 
+
+r10   sycamore   tk
+TK Pauli Simp: 0.45464372634887695
+Qiskit L3: 17.01305317878723
+{'swap': 2349, 'cx': 11648, 'depth': 10026} 
+
+r10   sycamore   ph
+Qiskit L3: 10.189223289489746
+{'swap': 383, 'cx': 6682, 'depth': 6366} 
+
+r10   sycamore   go
+Qiskit L3: 15.930275201797485
+{'swap': 136, 'cx': 5818, 'depth': 4623} 
+
+r12   manhattan   tk
+TK Pauli Simp: 0.668825626373291
+Qiskit L3: 53.495400190353394
+{'swap': 9635, 'cx': 36069, 'depth': 24289} 
+
+r12   manhattan   ph
+Qiskit L3: 20.93225646018982
+{'swap': 1960, 'cx': 16172, 'depth': 12056} 
+
+r12   manhattan   go
+Qiskit L3: 24.42781400680542
+{'swap': 1047, 'cx': 12988, 'depth': 9240} 
+
+r12   sycamore   tk
+TK Pauli Simp: 0.6642119884490967
+Qiskit L3: 31.562559366226196
+{'swap': 4699, 'cx': 22055, 'depth': 17759} 
+
+r12   sycamore   ph
+Qiskit L3: 29.380699396133423
+{'swap': 555, 'cx': 11998, 'depth': 10578} 
+
+r12   sycamore   go
+Qiskit L3: 17.778446912765503
+{'swap': 266, 'cx': 10806, 'depth': 7178} 
+
+r14   manhattan   tk
+TK Pauli Simp: 1.09114408493042
+Qiskit L3: 76.58868098258972
+{'swap': 16853, 'cx': 61480, 'depth': 41679} 
+
+r14   manhattan   ph
+Qiskit L3: 43.400694847106934
+{'swap': 3304, 'cx': 26796, 'depth': 18594} 
+
+r14   manhattan   go
+Qiskit L3: 48.430824279785156
+{'swap': 1795, 'cx': 21174, 'depth': 14111} 
+
+r14   sycamore   tk
+TK Pauli Simp: 1.0944101810455322
+Qiskit L3: 54.2526912689209
+{'swap': 8690, 'cx': 38741, 'depth': 29567} 
+
+r14   sycamore   ph
+Qiskit L3: 42.989975690841675
+{'swap': 562, 'cx': 19028, 'depth': 16005} 
+
+r14   sycamore   go
+Qiskit L3: 46.47242331504822
+{'swap': 373, 'cx': 17610, 'depth': 10298} 
+
+r16   manhattan   tk
+TK Pauli Simp: 1.6991372108459473
+Qiskit L3: 160.00584530830383
+{'swap': 27693, 'cx': 99295, 'depth': 66873} 
+
+r16   manhattan   ph
+Qiskit L3: 54.546653509140015
+{'swap': 4631, 'cx': 40076, 'depth': 23906} 
+
+r16   manhattan   go
+Qiskit L3: 52.267409324645996
+{'swap': 3171, 'cx': 33997, 'depth': 20694} 
+
+r16   sycamore   tk
+TK Pauli Simp: 1.4174892902374268
+Qiskit L3: 80.48138737678528
+{'swap': 14215, 'cx': 61848, 'depth': 45922} 
+
+r16   sycamore   ph
+Qiskit L3: 72.58320236206055
+{'swap': 1218, 'cx': 30314, 'depth': 24309} 
+
+r16   sycamore   go
+Qiskit L3: 49.17034077644348
+{'swap': 572, 'cx': 27432, 'depth': 14330} 
+
+r18   manhattan   tk
+TK Pauli Simp: 2.0888311862945557
+Qiskit L3: 174.2416477203369
+{'swap': 44914, 'cx': 159161, 'depth': 99077} 
+
+r18   manhattan   ph
+Qiskit L3: 82.35908579826355
+{'swap': 7113, 'cx': 59384, 'depth': 34877} 
+
+r18   manhattan   go
+Qiskit L3: 77.52405023574829
+{'swap': 4973, 'cx': 50796, 'depth': 27548} 
+
+r18   sycamore   tk
+TK Pauli Simp: 2.5146820545196533
+Qiskit L3: 198.32535099983215
+{'swap': 21746, 'cx': 92989, 'depth': 67053} 
+
+r18   sycamore   ph
+Qiskit L3: 136.48986268043518
+{'swap': 2360, 'cx': 45533, 'depth': 34151} 
+
+r18   sycamore   go
+Qiskit L3: 76.11941528320312
+{'swap': 969, 'cx': 39546, 'depth': 19364} 
+
+r20   manhattan   tk
+TK Pauli Simp: 3.724475145339966
+Qiskit L3: 385.9857187271118
+{'swap': 67392, 'cx': 236444, 'depth': 138162} 
+
+r20   manhattan   ph
+Qiskit L3: 137.35722017288208
+{'swap': 9309, 'cx': 80966, 'depth': 43308} 
+
+r20   manhattan   go
+Qiskit L3: 185.1001443862915
+{'swap': 6482, 'cx': 69829, 'depth': 37432} 
+
+r20   sycamore   tk
+TK Pauli Simp: 3.5457921028137207
+Qiskit L3: 277.3959572315216
+{'swap': 33450, 'cx': 138497, 'depth': 95284} 
+
+r20   sycamore   ph
+Qiskit L3: 132.18264746665955
+{'swap': 1899, 'cx': 59494, 'depth': 44377} 
+
+r20   sycamore   go
+Qiskit L3: 144.67618107795715
+{'swap': 1217, 'cx': 53922, 'depth': 25226} 
+
+H2   manhattan   tk
+TK Pauli Simp: 0.004253864288330078
+Qiskit L3: 0.03589820861816406
+{'swap': 4, 'cx': 24, 'depth': 34} 
+
+H2   manhattan   ph
+Qiskit L3: 0.07324814796447754
+{'swap': 3, 'cx': 44, 'depth': 63} 
+
+H2   manhattan   go
+Qiskit L3: 0.04910564422607422
+{'swap': 1, 'cx': 30, 'depth': 45} 
+
+H2   sycamore   tk
+TK Pauli Simp: 0.0046100616455078125
+Qiskit L3: 0.03736591339111328
+{'swap': 2, 'cx': 16, 'depth': 30} 
+
+H2   sycamore   ph
+Qiskit L3: 0.058287620544433594
+{'swap': 2, 'cx': 37, 'depth': 55} 
+
+H2   sycamore   go
+Qiskit L3: 0.0514678955078125
+{'swap': 1, 'cx': 36, 'depth': 46} 
+
+LiH   manhattan   tk
+TK Pauli Simp: 0.4241929054260254
+Qiskit L3: 13.543725728988647
+{'swap': 4167, 'cx': 15103, 'depth': 12159} 
+
+LiH   manhattan   ph
+Qiskit L3: 14.715585470199585
+{'swap': 695, 'cx': 6807, 'depth': 6521} 
+
+LiH   manhattan   go
+Qiskit L3: 13.37002182006836
+{'swap': 513, 'cx': 4953, 'depth': 5013} 
+
+LiH   sycamore   tk
+TK Pauli Simp: 0.35494232177734375
+Qiskit L3: 7.591340065002441
+{'swap': 2029, 'cx': 9440, 'depth': 8271} 
+
+LiH   sycamore   ph
+Qiskit L3: 10.436809301376343
+{'swap': 285, 'cx': 5240, 'depth': 5602} 
+
+LiH   sycamore   go
+Qiskit L3: 8.415192604064941
+{'swap': 176, 'cx': 4255, 'depth': 4252} 
+
+H2O   manhattan   tk
+TK Pauli Simp: 0.6832275390625
+Qiskit L3: 20.853765964508057
+{'swap': 7437, 'cx': 26810, 'depth': 21714} 
+
+H2O   manhattan   ph
+Qiskit L3: 23.46803569793701
+{'swap': 1665, 'cx': 13434, 'depth': 11082} 
+
+H2O   manhattan   go
+Qiskit L3: 20.921527862548828
+{'swap': 851, 'cx': 9472, 'depth': 9070} 
+
+H2O   sycamore   tk
+TK Pauli Simp: 0.6990921497344971
+Qiskit L3: 14.474677801132202
+{'swap': 3919, 'cx': 17625, 'depth': 15288} 
+
+H2O   sycamore   ph
+Qiskit L3: 16.568207263946533
+{'swap': 450, 'cx': 9800, 'depth': 9867} 
+
+H2O   sycamore   go
+Qiskit L3: 16.751142501831055
+{'swap': 420, 'cx': 8427, 'depth': 7955} 
+
+NH3   manhattan   tk
+TK Pauli Simp: 1.6933021545410156
+Qiskit L3: 112.23985362052917
+{'swap': 17469, 'cx': 62456, 'depth': 48901} 
+
+NH3   manhattan   ph
+Qiskit L3: 60.68279027938843
+{'swap': 2620, 'cx': 26948, 'depth': 24064} 
+
+NH3   manhattan   go
+Qiskit L3: 57.37714409828186
+{'swap': 1932, 'cx': 21052, 'depth': 20055} 
+
+NH3   sycamore   tk
+TK Pauli Simp: 2.0590264797210693
+Qiskit L3: 77.0288450717926
+{'swap': 8657, 'cx': 39000, 'depth': 34156} 
+
+NH3   sycamore   ph
+Qiskit L3: 49.9648220539093
+{'swap': 975, 'cx': 22005, 'depth': 21829} 
+
+NH3   sycamore   go
+Qiskit L3: 52.95343232154846
+{'swap': 642, 'cx': 16877, 'depth': 17206} 
+
+CH4   manhattan   tk
+TK Pauli Simp: 6.808494329452515
+Qiskit L3: 504.57116889953613
+{'swap': 55587, 'cx': 197866, 'depth': 154100} 
+
+CH4   manhattan   ph
+Qiskit L3: 158.0101718902588
+{'swap': 5231, 'cx': 74122, 'depth': 68651} 
+
+CH4   manhattan   go
+Qiskit L3: 159.93739199638367
+{'swap': 5037, 'cx': 64716, 'depth': 62741} 
+
+CH4   sycamore   tk
+TK Pauli Simp: 6.709373235702515
+Qiskit L3: 275.78916120529175
+{'swap': 27494, 'cx': 122348, 'depth': 105631} 
+
+CH4   sycamore   ph
+Qiskit L3: 168.64971137046814
+{'swap': 2594, 'cx': 68141, 'depth': 70511} 
+
+CH4   sycamore   go
+Qiskit L3: 192.34556126594543
+{'swap': 1664, 'cx': 57472, 'depth': 54061} 
+
+u8   manhattan   tk
+TK Pauli Simp: 0.07439398765563965
+Qiskit L3: 2.6360361576080322
+{'swap': 422, 'cx': 1671, 'depth': 1600} 
+
+u8   manhattan   ph
+Qiskit L3: 2.3987622261047363
+{'swap': 131, 'cx': 1157, 'depth': 1425} 
+
+u8   manhattan   go
+Qiskit L3: 3.397867441177368
+{'swap': 84, 'cx': 1017, 'depth': 1082} 
+
+u8   sycamore   tk
+TK Pauli Simp: 0.07632184028625488
+Qiskit L3: 1.644899606704712
+{'swap': 206, 'cx': 1096, 'depth': 1144} 
+
+u8   sycamore   ph
+Qiskit L3: 2.454871892929077
+{'swap': 198, 'cx': 1312, 'depth': 1619} 
+
+u8   sycamore   go
+Qiskit L3: 2.2957937717437744
+{'swap': 27, 'cx': 898, 'depth': 1071} 
+
+u12   manhattan   tk
+TK Pauli Simp: 1.1455302238464355
+Qiskit L3: 54.192984104156494
+{'swap': 7815, 'cx': 27900, 'depth': 24964} 
+
+u12   manhattan   ph
+Qiskit L3: 35.0426812171936
+{'swap': 2437, 'cx': 18116, 'depth': 19038} 
+
+u12   manhattan   go
+Qiskit L3: 28.667049884796143
+{'swap': 1681, 'cx': 14215, 'depth': 14272} 
+
+u12   sycamore   tk
+TK Pauli Simp: 0.8912889957427979
+Qiskit L3: 38.80522298812866
+{'swap': 4009, 'cx': 18806, 'depth': 17570} 
+
+u12   sycamore   ph
+Qiskit L3: 38.45345997810364
+{'swap': 2110, 'cx': 16580, 'depth': 18885} 
+
+u12   sycamore   go
+Qiskit L3: 32.23817586898804
+{'swap': 841, 'cx': 13079, 'depth': 12148} 
+
+u16   manhattan   tk
+TK Pauli Simp: 4.215198755264282
+Qiskit L3: 328.4733855724335
+{'swap': 34881, 'cx': 121480, 'depth': 92910} 
+
+u16   manhattan   ph
+Qiskit L3: 142.1335470676422
+{'swap': 7921, 'cx': 57069, 'depth': 54928} 
+
+u16   manhattan   go
+Qiskit L3: 136.14631414413452
+{'swap': 5590, 'cx': 52324, 'depth': 45152} 
+
+u16   sycamore   tk
+TK Pauli Simp: 4.181243419647217
+Qiskit L3: 129.62629318237305
+{'swap': 16383, 'cx': 72719, 'depth': 62915} 
+
+u16   sycamore   ph
+Qiskit L3: 155.25073385238647
+{'swap': 8444, 'cx': 59937, 'depth': 62108} 
+
+u16   sycamore   go
+Qiskit L3: 146.9925320148468
+{'swap': 2832, 'cx': 44949, 'depth': 38489} 
+
+u20   manhattan   tk
+TK Pauli Simp: 8.512636661529541
+Qiskit L3: 964.6390459537506
+{'swap': 83682, 'cx': 288147, 'depth': 207186} 
+
+u20   manhattan   ph
+Qiskit L3: 350.5252628326416
+{'swap': 12244, 'cx': 122220, 'depth': 121218} 
+
+u20   manhattan   go
+Qiskit L3: 438.0833361148834
+{'swap': 9666, 'cx': 102567, 'depth': 89547} 
+
+u20   sycamore   tk
+TK Pauli Simp: 8.713487148284912
+Qiskit L3: 407.21821117401123
+{'swap': 39449, 'cx': 170501, 'depth': 139332} 
+
+u20   sycamore   ph
+Qiskit L3: 461.91659235954285
+{'swap': 15189, 'cx': 128679, 'depth': 134680} 
+
+u20   sycamore   go
+Qiskit L3: 336.2951316833496
+{'swap': 3303, 'cx': 94322, 'depth': 76989} 
+
+u24   manhattan   tk
+TK Pauli Simp: 10.156535387039185
+Qiskit L3: 1049.4702212810516
+{'swap': 91706, 'cx': 314040, 'depth': 236194} 
+
+u24   manhattan   ph
+Qiskit L3: 343.47802686691284
+{'swap': 18089, 'cx': 125031, 'depth': 119549} 
+
+u24   manhattan   go
+Qiskit L3: 371.866956949234
+{'swap': 13320, 'cx': 108465, 'depth': 100477} 
+
+u24   sycamore   tk
+TK Pauli Simp: 12.88643217086792
+Qiskit L3: 553.6589093208313
+{'swap': 43057, 'cx': 189442, 'depth': 158568} 

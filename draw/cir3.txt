@@ -1,0 +1,6 @@
+\lstick{$0$} & \targ{} & \targ{} & \targ{} & \\
+\lstick{$1$} & \ctrl{-1} & & & \\
+\lstick{$2$} & & \ctrl{-2} & & \\
+\lstick{$3$} & & \targ{} & \ctrl{-3} & \\
+\lstick{$4$} & \targ{} & \ctrl{-1} & & \\
+\lstick{$5$} & \ctrl{-1} & & & \\
