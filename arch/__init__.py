@@ -78,6 +78,14 @@ def is_code_reduced(code):
     return reduced
 
 def load_graph(code, dist_comp=False, len_func=lambda x:x):
+    if 'all' in code:
+        n = int(code[3:])
+        G = np.ones((n, n))
+        C = np.ones((n, n))
+        for i in range(n):
+            G[i][i] = 0
+            C[i][i] = 0
+        return G, C
     if 'grid' in code:
         a = int(code[4:6]) # a*b的阵列
         b = int(code[6:8])

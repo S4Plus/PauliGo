@@ -4,7 +4,7 @@ class gate():
         self.q = q
         self.name = name
 
-def tikz(gate_list, nq, fname):
+def tikz(gate_list, nq, f):
     m = [[] for i in range(nq)]
     for g in gate_list:
         if g.name == 'cx':
@@ -29,7 +29,8 @@ def tikz(gate_list, nq, fname):
     for i in range(nq):
         while len(m[i]) < d2:
             m[i].append(0)
-    f = open(fname, 'w+')
+    # f = open(fname, 'w+')
+    f.write('\n\n')
     k = 0
     for i in m:
         f.write('\\lstick{{${}$}}'.format(k))
@@ -40,7 +41,7 @@ def tikz(gate_list, nq, fname):
                 f.write(' & ' + j)
         k += 1
         f.write(' & \\\\\n')
-    f.close()
+    # f.close()
 
 class circuit():
     def __init__(self):
@@ -54,12 +55,26 @@ class circuit():
     def many_cx(self, gl):
         for g in gl:
             self.cx(g[0],g[1])
+    def exchange(self, q1, q2):
+        for g in self.gate_list:
+            g.q = [q2 if i == q1 else i for i in g.q]
 cir = circuit()
-cir.many_cx([[5,4], [4,3]])
-tikz(cir.gate_list, 6, './cir2.txt')
+f = open('./example.txt', 'w+')
+cir.many_cx([[5, 6] , [1, 3] , [2, 0] , [3, 0] , [6, 4] , [0, 4]])
+# cir.exchange(0, 2)
+# cir.exchange(1, 0)
+# cir.exchange(2, 1)
+tikz(cir.gate_list, 9, f)
 cir = circuit()
-cir.many_cx([[5,4], [4,3], [1, 0], [2, 0], [3, 0]])
-tikz(cir.gate_list, 6, './cir3.txt')
+cir.many_cx([[5, 7] , [2, 0] , [1, 4] , [7, 4] , [0, 4]])
+tikz(cir.gate_list, 9, f)
 cir = circuit()
-cir.many_cx([[5,4], [4,3], [3, 0], [2, 0], [1, 0]])
-tikz(cir.gate_list, 6, './cir4.txt')
+cir.many_cx([[6, 8] , [3, 1] , [8, 1] , [0, 4] , [7, 4] , [1, 4]])
+tikz(cir.gate_list, 9, f)
+cir = circuit()
+cir.many_cx([[0, 4] , [1, 4] , [6, 4]])
+tikz(cir.gate_list, 9, f)
+cir = circuit()
+cir.many_cx([[2, 7] , [4, 7] , [5, 7]])
+tikz(cir.gate_list, 9, f)
+f.close()

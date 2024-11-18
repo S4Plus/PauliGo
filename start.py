@@ -12,6 +12,18 @@ bms = molecules + random_index + uccsd_index # random_index + molecules + uccsd_
 cps = ['ucc'] # 'tk', 'ph', 'go'
 acs = ['manhattan', 'sycamore']
 
+def to_txt(bm, path):
+    op_list = load_benchmark(bm)
+    print(type(op_list[0][0]), op_list[0][0])
+    f = open(path, 'w+')
+    f.write(str(op_list))
+    f.close()
+
+for bm in bms:
+    path = './benchmark/text/{}'.format(bm[1].replace('.pickle', '.txt'))
+    to_txt(bm[1], path)
+exit()
+
 def program_prep(origin_blocks):
     bn = pn = 0
     blocks = []

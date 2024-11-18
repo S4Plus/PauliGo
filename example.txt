@@ -1,0 +1,55 @@
+
+
+\lstick{$0$} & \targ{} & \targ{} & \ctrl{4} & \\
+\lstick{$1$} & \ctrl{2} & & & \\
+\lstick{$2$} & \ctrl{-2} & & & \\
+\lstick{$3$} & \targ{} & \ctrl{-3} & & \\
+\lstick{$4$} & & \targ{} & \targ{} & \\
+\lstick{$5$} & \ctrl{1} & & & \\
+\lstick{$6$} & \targ{} & \ctrl{-2} & & \\
+\lstick{$7$} & & & & \\
+\lstick{$8$} & & & & \\
+
+
+\lstick{$0$} & \targ{} & & \ctrl{4} & \\
+\lstick{$1$} & \ctrl{3} & & & \\
+\lstick{$2$} & \ctrl{-2} & & & \\
+\lstick{$3$} & & & & \\
+\lstick{$4$} & \targ{} & \targ{} & \targ{} & \\
+\lstick{$5$} & \ctrl{2} & & & \\
+\lstick{$6$} & & & & \\
+\lstick{$7$} & \targ{} & \ctrl{-3} & & \\
+\lstick{$8$} & & & & \\
+
+
+\lstick{$0$} & \ctrl{4} & & & \\
+\lstick{$1$} & \targ{} & \targ{} & \ctrl{3} & \\
+\lstick{$2$} & & & & \\
+\lstick{$3$} & \ctrl{-2} & & & \\
+\lstick{$4$} & \targ{} & \targ{} & \targ{} & \\
+\lstick{$5$} & & & & \\
+\lstick{$6$} & \ctrl{2} & & & \\
+\lstick{$7$} & & \ctrl{-3} & & \\
+\lstick{$8$} & \targ{} & \ctrl{-7} & & \\
+
+
+\lstick{$0$} & \ctrl{4} & & & \\
+\lstick{$1$} & & \ctrl{3} & & \\
+\lstick{$2$} & & & & \\
+\lstick{$3$} & & & & \\
+\lstick{$4$} & \targ{} & \targ{} & \targ{} & \\
+\lstick{$5$} & & & & \\
+\lstick{$6$} & & & \ctrl{-2} & \\
+\lstick{$7$} & & & & \\
+\lstick{$8$} & & & & \\
+
+
+\lstick{$0$} & & & & \\
+\lstick{$1$} & & & & \\
+\lstick{$2$} & \ctrl{5} & & & \\
+\lstick{$3$} & & & & \\
+\lstick{$4$} & & \ctrl{3} & & \\
+\lstick{$5$} & & & \ctrl{2} & \\
+\lstick{$6$} & & & & \\
+\lstick{$7$} & \targ{} & \targ{} & \targ{} & \\
+\lstick{$8$} & & & & \\

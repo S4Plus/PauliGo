@@ -70,7 +70,7 @@ def find_path(graph, pid0, pid1, ins):
         ins.append(['s', pid0, minid])
         find_path(graph, minid, pid1, ins)
 class TreeNode:
-    def __init__(self, number, children, t):
+    def __init__(self, number, children:list, t):
         self.number = number
         self.children = children
         self.t = t
@@ -78,8 +78,9 @@ class TreeNode:
 
     def link(self, child):
         self.children.append(child)
-        self.t += 1
-        child.t = self.t
+
+    def unlink(self, child):
+        self.children.remove(child)
 
 def print_tree1(tree:TreeNode):
     for child in tree.children:
@@ -168,6 +169,62 @@ def generate(graph, P):
         seleted[child] = True
         if child in P:
             cnt -= 1
+    return nodes[center]
+
+def cal_depth(root:TreeNode):
+    root.t = 0
+    if len(root.children) == 0:
+        return
+    for child in root.children:
+        cal_depth(child)
+    root.children.sort(key=lambda x:x.t)
+    for i in range(len(root.children)):
+        root.t = max(root.t, root.children[i].t) + 1
+    return
+
+def generate1(graph, P):
+    # 将所有节点转换为TreeNode
+    nodes = [TreeNode(n, [], 0) for n in range(len(graph))]
+    for i in P:
+        nodes[i].covered = True
+    vNum = len(graph.data)
+
+    debug = False
+    # 寻找中心点
+    center = findCenter1(graph.C, P)
+
+    seleted = [False] * vNum
+    seleted[center] = True
+    cnt = len(P) - 1
+    while cnt > 0:
+        visited = seleted.copy()
+        minCost, parent, child = max_size, -1, -1
+        for i in range(vNum):
+            if seleted[i]:
+                for temp in graph.data[i].adj:
+                    if not visited[temp]:
+                        # visited[temp] = True
+                        tempSeleted = seleted.copy()
+                        tempSeleted[temp] = True
+                        distance = distToSeleted(graph.C, P, tempSeleted)
+                        nodes[i].link(nodes[temp])
+                        cal_depth(nodes[center])
+                        cost = nodes[center].t + distance * (10**3) - int(temp in P) * (10**6)
+                        # if P == [2,1,4,5,3,7]:
+                        #     print('({},{})'.format(i, temp), ' : ', nodes[center].t, ', ', cost)
+                        nodes[i].unlink(nodes[temp])
+                        if (cost < minCost):
+                            minCost, parent, child = cost, i, temp
+        if debug:
+            print(parent, '->', child)
+            input()
+        nodes[parent].link(nodes[child])
+        seleted[child] = True
+        if P == [2,1,4,5,3,7]:
+            print(seleted)
+            print(parent, '->', child)
+        if child in P:
+            cnt -= 1
     print('my tree:')
     print_tree1(nodes[center])
     return nodes[center]
@@ -192,15 +249,17 @@ def go_synthesis(graph, tree, ins):
     else:
         tree.t = 0
 
-def go_synthesis1(graph, qc, psd, pi):
+def go_synthesis1(graph, qc, psd, pi, param):
     res = 0
     nodes = [pi[node] for node in ps2nodes(psd)]
     tree = generate(graph, nodes)
     for i in range(len(psd)):
         if psd[i] == 'X':
-            qc.u(np.pi / 2, 0, np.pi, pi[i])
+            # qc.u(np.pi / 2, 0, np.pi, pi[i])
+            qc.h(pi[i])
         elif psd[i] == 'Y':
-            qc.u(np.pi / 2, -np.pi / 2, np.pi / 2, pi[i])
+            # qc.u(np.pi / 2, -np.pi / 2, np.pi / 2, pi[i])
+            qc.rx(np.pi/2, pi[i])
     ins = []
     go_synthesis(graph, tree, ins)
     for ins1 in ins:
@@ -209,7 +268,7 @@ def go_synthesis1(graph, qc, psd, pi):
             qc.swap(ins1[1], ins1[2])
         else:
             qc.cx(ins1[1], ins1[2])
-    qc.rz(1.0, tree.number)
+    qc.rz(param, tree.number)
     ins.reverse()
     for ins1 in ins:
         if ins1[0] == 's':
@@ -219,7 +278,9 @@ def go_synthesis1(graph, qc, psd, pi):
             qc.cx(ins1[1], ins1[2])
     for i in range(len(psd)):
         if psd[i] == 'X':
-            qc.u(np.pi / 2, 0, np.pi, pi[i])
+            # qc.u(np.pi / 2, 0, np.pi, pi[i])
+            qc.h(pi[i])
         elif psd[i] == 'Y':
-            qc.u(np.pi / 2, -np.pi / 2, np.pi / 2, pi[i])
+            # qc.u(np.pi / 2, -np.pi / 2, np.pi / 2, pi[i])
+            qc.rx(-np.pi/2, pi[i])
     return res

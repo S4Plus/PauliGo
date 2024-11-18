@@ -10,7 +10,7 @@ molecules = ['H2', 'LiH', 'H2O', 'NH3', 'CH4']
 bms = uccsd_index + random_index + molecules
 metrics = ['cx', 'depth']
 
-f = open('../all_res.txt', 'r')
+f = open('../data/all_res.txt', 'r')
 for line in f:
     data = ast.literal_eval(line)
 
@@ -29,16 +29,16 @@ for ac in acs:
         #         else :
         #             f.write(' & ' + str(xi))
         # f.write('\\\\\n')
-        f.write(bm)
+        f.write(bm.replace('u', 'uccsd').replace('r', 'random'))
         for cp in cps:
             for metric in metrics:
                 f.write(' & ' + str(data[ac][cp][bm][metric]))
         f.write('\\\\\n')
 f.close()
-# exit()
+exit()
 
 def draw_grouped_bar_chart(xlabel, Y, save_path, leg_pos = 'upper left'):
-    labels = ['PauliSimp', 'UCCSynthesis', 'Paulihedral', 'POMCAS']
+    labels = ['PauliSimp', 'UCCSynthesis', 'Paulihedral', 'PauliForest']
     n_bars = len(Y)
     colors = ['deepskyblue', 'darkviolet', 'black']
     # for i in [xlabel, Y, labels]:

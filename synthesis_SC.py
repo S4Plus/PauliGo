@@ -81,17 +81,21 @@ def pauli_single_gates(qc, pauli_map, ps, left=True):
     if left == True:
         for i in range(len(ps)):
             if ps[i] == 'X':
-                qc.u(np.pi/2, 0, np.pi, pauli_map[i])
+                # qc.u(np.pi/2, 0, np.pi, pauli_map[i])
+                qc.h(pauli_map[i])
             elif ps[i] == 'Y':
-                qc.u(np.pi/2, -np.pi/2, np.pi/2, pauli_map[i])
+                # qc.u(np.pi/2, -np.pi/2, np.pi/2, pauli_map[i])
+                qc.rx(np.pi/2, pauli_map[i])
     else:
         for i in range(len(ps)):
             if ps[i] == 'X':
-                qc.u(np.pi/2, 0, np.pi, pauli_map[i])
+                # qc.u(np.pi/2, 0, np.pi, pauli_map[i])
+                qc.h(pauli_map[i])
             elif ps[i] == 'Y':
-                qc.u(-np.pi/2, -np.pi/2, np.pi/2, pauli_map[i])
+                # qc.u(-np.pi/2, -np.pi/2, np.pi/2, pauli_map[i])
+                qc.rx(-np.pi/2, pauli_map[i])
 
-def tree_synthesis1(qc, graph, pauli_map, ptree, psd): # psd : pauli string
+def tree_synthesis1(qc, graph, pauli_map, ptree, psd, param): # psd : pauli string
     ps = psd.ps
     psn = ps2nodes(ps)
     pauli_single_gates(qc, pauli_map, ps, left=True) # add single gates
@@ -107,7 +111,7 @@ def tree_synthesis1(qc, graph, pauli_map, ptree, psd): # psd : pauli string
         #print(l.parent.pid)
         if l.depth == 0:
             # psd.real may be zero
-            qc.rz(1, l.pid) # qc.rz(2*psd.real+1, l.pid)
+            qc.rz(param, l.pid) # qc.rz(2*psd.real+1, l.pid)
             break
         # actually, if psn is empty in the middle, we can stop it first
         # and the choice of root is also important
@@ -167,7 +171,7 @@ def tree_synthesis1(qc, graph, pauli_map, ptree, psd): # psd : pauli string
     return qc, 2 * len(swaps)
 
 def synthesis_initial(pauli_layers, pauli_map=None, graph=None, qc=None, arch='manhattan'):
-    assign_time_parameter(pauli_layers, 1) #配置\delta t
+    # assign_time_parameter(pauli_layers, 1) #配置\delta t
     lnq = len(pauli_layers[0][0][0]) # logical qubits
     if graph == None:
         G, C = load_graph(arch, dist_comp=True) # G is adj, C is dist
@@ -186,7 +190,7 @@ def inter_synthesis(pauli_layers, pauli_map=None, graph=None, qc=None, arch='man
     for i1 in pauli_layers:
         for i2 in i1:
             pass
-
+from qiskit.circuit import Parameter
 def block_opt_SC(pauli_layers, pauli_map=None, graph=None, qc=None, arch='manhattan', synthesis_opt = False):
     pauli_map, graph, qc = synthesis_initial(pauli_layers, pauli_map, graph, qc, arch)
     remain_layers = []
@@ -196,6 +200,7 @@ def block_opt_SC(pauli_layers, pauli_map=None, graph=None, qc=None, arch='manhat
     # lys code
     inner_swaps = 0
     outer_swaps = 0
+    params_num = 0
     # lys code
     for i1 in pauli_layers: # i1 : a layer
         for i2 in i1[:1]: # i2 : a block
@@ -261,13 +266,15 @@ def block_opt_SC(pauli_layers, pauli_map=None, graph=None, qc=None, arch='manhat
             #         print(dp)
             #         print('e2')
             #         input()
+            parameter = Parameter('phi' + str(params_num))
             for i3 in i2:
                 if synthesis_opt:
-                    ns = go_synthesis1(graph, qc, i3.ps, pauli_map)
+                    ns = go_synthesis1(graph, qc, i3.ps, pauli_map, i3.coeff * parameter)
                     inner_swaps += ns
                 else:
-                    _qc, ns = tree_synthesis1(qc, graph, pauli_map, dt, i3)
+                    _qc, ns = tree_synthesis1(qc, graph, pauli_map, dt, i3, i3.coeff * parameter)
                     inner_swaps += ns
+            params_num += 1
         xlist = dp # 第一个block涉及的物理比特
         move_overhead = len(ins) # 外部SWAP个数
         outer_swaps += move_overhead
@@ -328,13 +335,15 @@ def block_opt_SC(pauli_layers, pauli_map=None, graph=None, qc=None, arch='manhat
             pcover = logical_list_physical(pauli_map, lcover)
             dp = max_dfs_tree(graph, pcover, graph[lmi])
             dt = tree(graph, dp)
+            parameter = Parameter('phi' + str(params_num))
             for i3 in i2:
                 if synthesis_opt:
-                    ns = go_synthesis1(graph, qc, i3.ps, pauli_map)
+                    ns = go_synthesis1(graph, qc, i3.ps, pauli_map, i3.coeff * parameter)
                     inner_swaps += ns
                 else:
-                    _qc, ns = tree_synthesis1(qc, graph, pauli_map, dt, i3)
+                    _qc, ns = tree_synthesis1(qc, graph, pauli_map, dt, i3, i3.coeff * parameter)
                     inner_swaps += ns
+            params_num += 1
     # print(remain_layers)
     if remain_layers != []:
         def __key(cost_matrix, pauli_map, ly):
@@ -391,13 +400,15 @@ def block_opt_SC(pauli_layers, pauli_map=None, graph=None, qc=None, arch='manhat
                 dp = max_dfs_tree(graph, pcover, graph[lmi])
                 # print(dp)
                 dt = tree(graph, dp)
+                parameter = Parameter('phi' + str(params_num))
                 for i3 in i2:
                     if synthesis_opt:
-                        ns = go_synthesis1(graph, qc, i3.ps, pauli_map)
+                        ns = go_synthesis1(graph, qc, i3.ps, pauli_map, i3.coeff * parameter)
                         inner_swaps += ns
                     else:
-                        _qc, ns = tree_synthesis1(qc, graph, pauli_map, dt, i3)
+                        _qc, ns = tree_synthesis1(qc, graph, pauli_map, dt, i3, i3.coeff * parameter)
                         inner_swaps += ns
+                params_num += 1
     # print('inner swaps: ', inner_swaps)
     # print('outer_swaps: ', outer_swaps)
     return qc, inner_swaps, outer_swaps

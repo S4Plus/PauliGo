@@ -1,0 +1,17 @@
+\documentclass[border=2px]{standalone}
+
+\usepackage[braket, qm]{qcircuit}
+\usepackage{graphicx}
+
+\begin{document}
+\scalebox{1.0}{
+\Qcircuit @C=1.0em @R=0.8em @!R { \\
+	 	\nghost{{}_{0}   } & \lstick{{}_{0}   } & \qw & \qw & \targ & \targ & \targ & \qw & \qw\\
+	 	\nghost{{}_{1}   } & \lstick{{}_{1}   } & \ctrl{5} & \qw & \qw & \qw & \qw & \qw & \qw\\
+	 	\nghost{{}_{3}   } & \lstick{{}_{3}   } & \qw & \ctrl{2} & \qw & \qw & \qw & \qw & \qw\\
+	 	\nghost{{}_{4}   } & \lstick{{}_{4}   } & \qw & \qw & \ctrl{-3} & \qw & \qw & \qw & \qw\\
+	 	\nghost{{}_{6}   } & \lstick{{}_{6}   } & \qw & \targ & \targ & \qw & \ctrl{-4} & \qw & \qw\\
+	 	\nghost{{}_{7}   } & \lstick{{}_{7}   } & \qw & \qw & \qw & \ctrl{-5} & \qw & \qw & \qw\\
+	 	\nghost{{}_{8}   } & \lstick{{}_{8}   } & \targ & \qw & \ctrl{-2} & \qw & \qw & \qw & \qw\\
+\\ }}
+\end{document}

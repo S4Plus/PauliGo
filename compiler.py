@@ -150,6 +150,8 @@ class Compiler:
         self.my_pi = dummy_mapping(self.lnq)
         if opt==1:
             self.initial_mapping()
+        qc0 = QuantumCircuit(self.lnq)
+        qc0.x([self.my_pi[0]])
         qc, inner, outer = synthesis_SC.block_opt_SC(self.pauli_layers, graph=self.graph, pauli_map=self.my_pi)
         # f = open(self.phycir_path + '_origin.txt', mode='w+')
         # f.write(qc.qasm())
@@ -159,7 +161,7 @@ class Compiler:
         # f.write(qc.qasm())
         # f.close()
         # print('ph result: inner: ', inner, ': outer: ', outer, '\n')
-        return qc # [0, 0, inner + outer, outer, qc.depth()]
+        return qc0.compose(qc, list(range(self.lnq))) # [0, 0, inner + outer, outer, qc.depth()]
 
     def initial_mapping(self):
         self.my_pi = {}
@@ -180,14 +182,16 @@ class Compiler:
             self.scheduler.move(c)
             self.board.move(self.scheduler.pieces[c][1:], pos)
             self.my_pi[c] = pos
-        #     print(c, ' ', end="")
-        # print('\n')
+            print(c, ' ', end="")
+        print('\n')
         return self.my_pi
     
     def go_compile(self, opt=0):
         self.initial_mapping()
         if opt == 1:
             self.my_pi = dummy_mapping(self.lnq)
+        qc0 = QuantumCircuit(self.lnq)
+        qc0.x([self.my_pi[0], self.my_pi[1]])
         qc, inner, outer = synthesis_SC.block_opt_SC(self.pauli_layers, graph=self.graph, pauli_map=self.my_pi, synthesis_opt=True)
         # f = open(self.phycir_path + '_opt' + str(opt) + '_origin.txt', mode='w+')
         # f.write(qc.qasm())
@@ -197,7 +201,7 @@ class Compiler:
         # f.write(qc.qasm())
         # f.close()
         # print('my result: inner: ', inner, ', outer: ', outer, ', depth: ', qc.depth())
-        return qc # [0, 0, inner + outer, outer, qc.depth()]
+        return qc0.compose(qc, list(range(self.lnq))) # [0, 0, inner + outer, outer, qc.depth()]
     
     def start(self, cp, opt=0):
         if cp == 'ph':
@@ -271,7 +275,7 @@ class Compiler:
                     else:
                         temp_string.append(Pauli.I)
                 # qps_list.append(QubitPauliString(qubit_list, temp_string))
-                qps_dict[QubitPauliString(qubit_list, temp_string)] = 1/3.14
+                qps_dict[QubitPauliString(qubit_list, temp_string)] = pauli_str.coeff
 
         operator = QubitPauliOperator(qps_dict)
         init_circ = Circuit(len(operator.all_qubits))
@@ -297,6 +301,6 @@ class Compiler:
             for j in range(len(self.graph.G)):
                 if self.graph.G[i][j] != 0:
                     coupling.append([i,j])
-        qc = transpile(qc, basis_gates=['cx', 'swap', 'u3'], coupling_map=coupling)
+        # qc = transpile(qc, basis_gates=['cx', 'swap', 'u3'], coupling_map=coupling)
         # print("Qiskit L3:", time()-t0)
         return qc

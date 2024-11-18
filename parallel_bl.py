@@ -32,6 +32,7 @@ def pOR(ps1, ps2):
 class pauli_block: 
     def __init__(self, pb, idx=0):
         self.block = pb
+        print(pb)
         # if len(pb) > 0: # assume no empty
         self.nq = len(pb[0]) # num_qubit
         s = "I"*self.nq
