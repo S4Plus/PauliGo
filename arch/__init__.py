@@ -77,7 +77,7 @@ def is_code_reduced(code):
         reduced = False
     return reduced
 
-def load_graph(code, dist_comp=False, len_func=lambda x:x):
+def load_graph(code, dist_comp=True, len_func=lambda x:x):
     if 'all' in code:
         n = int(code[3:])
         G = np.ones((n, n))
@@ -92,23 +92,16 @@ def load_graph(code, dist_comp=False, len_func=lambda x:x):
         n = a * b
         G = np.zeros((n, n))
         C = np.ones((n, n)) * max_dist
-        for i in range(n):
-            #G[i][i] = 0
-            C[i][i] = 0
-        for i in range(n - 1):
-            G[i+1][i] = G[i][i+1] = 1
-            C[i+1][i] = C[i][i+1] = 1
         for i in range(a):
-            last = i
-            for j in range(1, b):
-                p = 0
-                if j % 2 == 1:
-                    p = last + 2 * (a - 1 - i) + 1
-                else:
-                    p = last + 2 * i + 1
-                G[last][p] = G[p][last] = 1
-                C[last][p] = C[p][last] = 1
-                last = p
+            for j in range(b):
+                x = i * b + j
+                C[x][x] = 0
+                if j < b - 1:
+                    G[x][x + 1] = G[x + 1][x] = 1
+                    C[x][x + 1] = C[x + 1][x] = 1
+                if i < a - 1:
+                    G[x][x + b] = G[x + b][x] = 1
+                    C[x][x + b] = C[x + b][x] = 1
         if dist_comp == True:
             for i in range(n):
                 dijkstra(C, i)

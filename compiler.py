@@ -301,6 +301,6 @@ class Compiler:
             for j in range(len(self.graph.G)):
                 if self.graph.G[i][j] != 0:
                     coupling.append([i,j])
-        # qc = transpile(qc, basis_gates=['cx', 'swap', 'u3'], coupling_map=coupling)
+        qc = transpile(qc, basis_gates=['cx', 'swap', 'u3'], coupling_map=coupling)
         # print("Qiskit L3:", time()-t0)
         return qc
